@@ -21,9 +21,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Entity representing an order in the ShopWave system.
- */
 @Entity
 @Data
 @NoArgsConstructor
@@ -43,7 +40,7 @@ public class Order {
     private OrderStatus status;
 
     @Column(precision = 10, scale = 2)
-    private BigDecimal totalAmount;
+    private BigDecimal total;
 
     @CreationTimestamp
     @Column(updatable = false)
@@ -52,4 +49,14 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<OrderItem> items = new ArrayList<>();
+
+    public void addItem(Product product, int qty) {
+        OrderItem item = OrderItem.builder()
+                .product(product)
+                .quantity(qty)
+                .unitPrice(product.getPrice())
+                .order(this)
+                .build();
+        items.add(item);
+    }
 }

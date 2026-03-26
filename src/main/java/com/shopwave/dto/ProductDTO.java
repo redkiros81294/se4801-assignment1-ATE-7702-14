@@ -8,9 +8,6 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-/**
- * Response DTO representing a product.
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +16,7 @@ public class ProductDTO {
 
     private Long id;
     private String name;
-    private String description;
+    private String desc;
     private BigDecimal price;
     private Integer stock;
     private String categoryName;

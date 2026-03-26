@@ -14,9 +14,6 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-/**
- * Entity representing an item within an order in the ShopWave system.
- */
 @Entity
 @Data
 @NoArgsConstructor

@@ -10,9 +10,6 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-/**
- * Request DTO for creating a new product.
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,7 +20,7 @@ public class CreateProductRequest {
     private String name;
 
     @NotBlank(message = "Product description is required")
-    private String description;
+    private String desc;
 
     @DecimalMin(value = "0.01", message = "Price must be greater than 0")
     private BigDecimal price;
